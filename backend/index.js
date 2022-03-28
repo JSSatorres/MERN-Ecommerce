@@ -1,5 +1,6 @@
 import app from "./server.js"
+import {PORT} from "./config/config.js"
 
 
 
-app.listen(4000, ()=>console.log("listening"))
+app.listen(PORT, ()=>console.log("listening",PORT))
