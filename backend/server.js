@@ -1,11 +1,11 @@
-import morgan from "morgan"
-import router from "./routes/productsRoutes.js"
-import express from"express"
+import morgan from "morgan";
+import productRoutes from "./routes/productsRoutes.js";
+import express from "express";
 
-const app = express()
-app.use(express.json())
-app.use (morgan("dev"))
+const app = express();
+app.use(morgan("dev"));
+app.use(express.json());
 
-app.use(router)
+app.use(productRoutes);
 
 export default app;
