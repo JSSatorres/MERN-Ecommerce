@@ -6,19 +6,19 @@ export const getProducts = async (req, res) => {
     res.send(allProducts);
     // res.json({"newProducts":"sfdsfs"})
   } catch (error) {
-    next(error);
+    return res.status(500).json({ message: error.mesage });
   }
 };
 
 export const getProduct = async (req, res) => {
   try {
     const oneProduct = await Products.findById(req.params.id);
-    if(!oneProduct){
-      return res.send("product nof found by id")
+    if (!oneProduct) {
+      return res.send("product nof found by id");
     }
     res.json(oneProduct);
   } catch (error) {
-    next(error);
+    return res.status(500).json({ message: error.mesage });
   }
 };
 
@@ -29,7 +29,7 @@ export const createtProducts = async (req, res) => {
     await newProducts.save();
     res.json(newProducts);
   } catch (error) {
-    next(error);
+    return res.status(500).json({ message: error.mesage });
   }
 };
 
@@ -41,7 +41,7 @@ export const deleteProducts = async (req, res) => {
     }
     return res.send("Product Deleted");
   } catch (error) {
-    next(error);
+    return res.status(500).json({ message: error.mesage });
   }
 };
 
@@ -55,6 +55,6 @@ export const updateProducts = async (req, res) => {
     );
     return res.send("update Product");
   } catch (error) {
-    next(error);
+    return res.status(500).json({ message: error.mesage });
   }
 };
