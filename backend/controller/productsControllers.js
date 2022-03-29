@@ -1,4 +1,6 @@
 import Products from "../models/productsModel.js";
+import {uploadImageCloud, deleteImageCloud} from "../libs/cloudinary.js";
+import fs from "fs-extra"
 
 export const getProducts = async (req, res) => {
   try {
@@ -23,12 +25,24 @@ export const getProduct = async (req, res) => {
 };
 
 export const createtProducts = async (req, res) => {
+  let image= null;
+
   try {
+    if (req.files.image) {
+      const resultLoadImage = await uploadImageCloud(req.files.image.tempFilePath);
+      await fs.remove(req.files.image.tempFilePath)
+      image={
+        url: resultLoadImage.secure_url,
+        public_id:resultLoadImage.public_id
+      }
+    }
+
     const { title, description } = req.body;
-    const newProducts = new Products({ title, description });
+    const newProducts = new Products({ title, description,image});
     await newProducts.save();
     res.json(newProducts);
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ message: error.mesage });
   }
 };
@@ -39,6 +53,11 @@ export const deleteProducts = async (req, res) => {
     if (!producDeleted) {
       return res.send("product not found");
     }
+
+    if(producDeleted.image.public_id ){
+    await deleteImageCloud(producDeleted.image.public_id);
+    }
+
     return res.send("Product Deleted");
   } catch (error) {
     return res.status(500).json({ message: error.mesage });
