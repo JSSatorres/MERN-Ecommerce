@@ -1,25 +1,27 @@
 import React from "react";
-// import { useQuery } from "react-query";
-import {getProductsRequest} from "../api/listProducts"
-
-
-const productsll = async() =>{
-  const res = await getProductsRequest ();
-  console.log(res);
-}
+import { useQuery } from "react-query";
+import { getProductsRequest } from "../api/listProducts";
 
 const Products = () => {
+  const query = useQuery("products", getProductsRequest);
+  if (query.isLoading) {
+    return <div>is loading</div>;
+  }
 
-  // const query = useQuery ("products",)
+  if (query.isError) {
+    return <div>Erro loading: {query.error?.message}</div>;
+  }
+  console.log(query.data);
 
-  console.log(productsll);
   return (
-    <div>
-      <h1>Products</h1>
-      {productsll.map((item) => (
-        <div key={item.id}> {item.title}</div>
-      ))}
-    </div>
+    <>
+      <ul>
+        {query.data.map((item) => (
+          <li key={item._id}> {item.title} </li>
+        ))}
+      </ul>
+      <button onClick={query.refetch}>Refresh </button>
+    </>
   );
 };
 
