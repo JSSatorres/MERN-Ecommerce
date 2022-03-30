@@ -1,17 +1,16 @@
-// import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import LoginAdmin from "./pages/loginAdmin";
 import "./App.css";
+
+import LoginAdmin from "./pages/loginAdmin";
 import AdminPage from "./pages/adminPage";
 import PostProducts from "./pages/postProducts";
 import NotFound from "./pages/notFound";
 import Products from "./components/Products";
 
+
 function App() {
   const queryClient = new QueryClient();
-
-  // const [products, setProducts] = useState([]);
 
   return (
     <div className="bg-neutral-200">

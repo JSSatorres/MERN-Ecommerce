@@ -1,9 +1,10 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { getProductsRequest } from "../api/listProducts";
+import useProducts from "../useHook/useProducts";
+
+
 
 const Products = () => {
-  const query = useQuery("products", getProductsRequest);
+  const query =useProducts();
   if (query.isLoading) {
     return <div>is loading</div>;
   }
