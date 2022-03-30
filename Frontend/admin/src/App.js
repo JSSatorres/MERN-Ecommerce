@@ -7,13 +7,13 @@ import AdminPage from "./pages/adminPage";
 import PostProducts from "./pages/postProducts";
 import NotFound from "./pages/notFound";
 import Products from "./components/Products";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 
 function App() {
   const queryClient = new QueryClient();
 
   return (
-    <div className="bg-neutral-200">
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<LoginAdmin />} />
@@ -23,7 +23,6 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>
-    </div>
   );
 }
 
