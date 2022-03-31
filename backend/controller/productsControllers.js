@@ -1,10 +1,10 @@
-import Products from "../models/productsModel.js";
+import pepito from "../models/productsModel.js";
 import {uploadImageCloud, deleteImageCloud} from "../libs/cloudinary.js";
 import fs from "fs-extra"
 
 export const getProducts = async (req, res) => {
   try {
-    const allProducts = await Products.find();
+    const allProducts = await pepito.find();
     res.send(allProducts);
     // res.json({"newProducts":"sfdsfs"})
   } catch (error) {
@@ -14,7 +14,7 @@ export const getProducts = async (req, res) => {
 
 export const getProduct = async (req, res) => {
   try {
-    const oneProduct = await Products.findById(req.params.id);
+    const oneProduct = await pepito.findById(req.params.id);
     if (!oneProduct) {
       return res.send("product nof found by id");
     }
@@ -38,7 +38,7 @@ export const createtProducts = async (req, res) => {
     }
 
     const { title, description } = req.body;
-    const newProducts = new Products({ title, description,image});
+    const newProducts = new pepito({ title, description,image});
     await newProducts.save();
     res.json(newProducts);
   } catch (error) {
@@ -49,7 +49,7 @@ export const createtProducts = async (req, res) => {
 
 export const deleteProducts = async (req, res) => {
   try {
-    const producDeleted = await Products.findByIdAndRemove(req.params.id);
+    const producDeleted = await pepito.findByIdAndRemove(req.params.id);
     if (!producDeleted) {
       return res.send("product not found");
     }
@@ -67,7 +67,7 @@ export const deleteProducts = async (req, res) => {
 export const updateProducts = async (req, res) => {
   try {
     const { productId } = req.params.id;
-    const productUpdate = await Products.findByIdAndUpdate(
+    const productUpdate = await pepito.findByIdAndUpdate(
       productId,
       req.body,
       { new: true }

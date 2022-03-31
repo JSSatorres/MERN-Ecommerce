@@ -1,1 +1,15 @@
-// Import the functions you need from the SDKs you need
+// src/firebase/firebase.js
+const admin = require("firebase-admin");
+
+const config = require("../config/config");
+
+admin.initializeApp({
+  credential: admin.credential.cert(config.firebase.certConfig),
+});
+
+const auth = admin.auth();
+
+module.exports = {
+  admin: admin,
+  auth: auth,
+};
