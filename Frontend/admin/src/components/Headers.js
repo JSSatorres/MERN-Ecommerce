@@ -19,9 +19,6 @@ const Headers = () => {
       <Link className="hover:text-slate-900 mx-4 float-left" to="/home">
         Home
       </Link>
-      <Link className="hover:text-slate-900 mx-4 " to="/editporduct">
-        Edit Product
-      </Link>
       <Link className="hover:text-slate-900 mx-4 float-left" to="/postproduct">
         New Product
       </Link>

@@ -7,15 +7,12 @@ const Products = () => {
   if (query.isLoading) {
     return <div>is loading</div>;
   }
-
   if (query.isError) {
     return <div>Erro loading: {query.error?.message}</div>;
   }
-  console.log(query.data);
 
   return (
     <>
-    
       <div className="grid grid-cols-3 gap-2">
         {query.data.map((item) => (
           <ItemProducts key={item._id} item={item} />

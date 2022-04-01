@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import Headers from "../../components/Headers";
+import Footer from "../../components/footer";
+import EditProducts from "../../components/EditProducts";
 
 const PostProducts = () => {
   return (
-    <div>PostProdcuts</div>
-  )
-}
+    <>
+      <Headers />
+      <EditProducts/>
+      <Footer />
+    </>
+  );
+};
 
-export default PostProducts
+export default PostProducts;
