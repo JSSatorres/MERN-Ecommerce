@@ -1,13 +1,14 @@
 import React from "react";
 import Headers from "../../components/Headers";
 import Footer from "../../components/footer";
-import EditProducts from "../../components/EditProducts";
+import NewProduct from "../../components/NewProduct";
+
 
 const PostProducts = () => {
   return (
     <>
       <Headers />
-      <EditProducts/>
+      <NewProduct/>
       <Footer />
     </>
   );

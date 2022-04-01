@@ -11,6 +11,7 @@ const EditProducts = () => {
   const query = useProducts();
   const {id} = useParams();
 
+
   if (query.isLoading) {
     return <div>is loading</div>;
   }
