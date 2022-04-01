@@ -15,7 +15,7 @@ const Headers = () => {
   }
 
   return (
-    <nav className="bg-indigo-500 py-4 text-white px-3 flow-root">
+    <nav className="bg-indigo-500 py-4 text-white px-3 flow-root border-b-2 border-indigo-900">
       <Link className="hover:text-slate-900 mx-4 float-left" to="/home">
         Home
       </Link>

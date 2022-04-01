@@ -2,6 +2,8 @@ import React from "react";
 import Headers from "../../components/Headers";
 import {useAuth} from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/footer";
+import Products from "../../components/Products";
 // import RegisterAdmin from "../registerAdmin";
 
 const Home = () => {
@@ -16,7 +18,8 @@ const handleLogout = async ()=>{
   return (
     <div>
       <Headers />
-      <h1> welcome </h1>
+      <Products />
+      <Footer/>
     </div>
   );
 };
