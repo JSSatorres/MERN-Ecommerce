@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<RegisterAdmin />} />
           <Route path="/login" element={<LoginAdmin />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/newproduct" element={<PostProducts />} />
           <Route path="/editproduct/:id" element={<PostProducts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

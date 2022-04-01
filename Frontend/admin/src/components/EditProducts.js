@@ -10,20 +10,15 @@ const EditProducts = () => {
   const navigate=  useNavigate ()
   const query = useProducts();
   const {id} = useParams();
-  const hayYoQueSe = query.data
-
-  console.log(id);
-  console.log(hayYoQueSe);
 
   if (query.isLoading) {
     return <div>is loading</div>;
   }
-
-  // setAllProducts= (hayYoQueSe)
-  // console.log(allProducts);
-
-
-  const productToEdit= hayYoQueSe.filter((el)=> el._id === id)
+  if (query.isError) {
+    return <div>Erro loading: {query.error?.message}</div>;
+  }
+ 
+  const productToEdit= query.data.filter((el)=> el._id === id)
  console.log(productToEdit);
   
 

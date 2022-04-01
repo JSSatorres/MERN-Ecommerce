@@ -7,9 +7,9 @@ const Products = () => {
   if (query.isLoading) {
     return <div>is loading</div>;
   }
-  // if (query.isError) {
-  //   return <div>Erro loading: {query.error?.message}</div>;
-  // }
+  if (query.isError) {
+    return <div>Erro loading: {query.error?.message}</div>;
+  }
 
   return (
     <>

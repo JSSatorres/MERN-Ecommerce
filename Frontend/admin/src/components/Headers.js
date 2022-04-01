@@ -19,7 +19,7 @@ const Headers = () => {
       <Link className="hover:text-slate-900 mx-4 float-left" to="/home">
         Home
       </Link>
-      <Link className="hover:text-slate-900 mx-4 float-left" to="/postproduct">
+      <Link className="hover:text-slate-900 mx-4 float-left" to="/newproduct">
         New Product
       </Link>
       {user ? (
