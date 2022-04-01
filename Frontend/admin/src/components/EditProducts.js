@@ -15,12 +15,16 @@ const EditProducts = () => {
   console.log(id);
   console.log(hayYoQueSe);
 
+  if (query.isLoading) {
+    return <div>is loading</div>;
+  }
+
   // setAllProducts= (hayYoQueSe)
   // console.log(allProducts);
 
 
-  // const productToEdit= hayYoQueSe.filter((el)=> el.title === "Picachu")
-//  console.log(productToEdit);
+  const productToEdit= hayYoQueSe.filter((el)=> el._id === id)
+ console.log(productToEdit);
   
 
   return (
@@ -31,15 +35,15 @@ const EditProducts = () => {
             width="400"
             height="200"
             className="w-5/6 mx-auto"
-            // src={productToEdit.image.url}
+            src={productToEdit[0].image.url}
           ></img>
         </div>
         <div className="self-end">
           <h4 className="text-2xl font-bold text-gray-500 group-hover:text-gray-700">
-            {/* {productToEdit.title} */}
+            {productToEdit[0].title}
           </h4>
           <p className="text-sm font-semibold text-gray-500 group-hover:text-gray-700 mt-2 leading-6">
-            {/* {productToEdit.description}  */}
+            {productToEdit[0].description} 
           </p>
           <div className="flex justify-center">
             <button
@@ -47,6 +51,12 @@ const EditProducts = () => {
               onClick={() => navigate('/home')}
             >
               Edit
+            </button>
+            <button
+              className=" bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:shadow-outline shadow-2xl"
+              onClick={() => navigate('/home')}
+            >
+              Delete
             </button>
           </div>
         </div>

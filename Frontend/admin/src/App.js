@@ -9,8 +9,8 @@ import NotFound from "./pages/notFound";
 import Home from "./pages/home";
 import RegisterAdmin from "./pages/registerAdmin";
 
+const queryClient = new QueryClient();
 function App() {
-  const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>

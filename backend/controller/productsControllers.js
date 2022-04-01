@@ -28,7 +28,7 @@ export const createtProducts = async (req, res) => {
   let image= null;
 
   try {
-    if (req.files.image) {
+    if (req.files?.image) {
       const resultLoadImage = await uploadImageCloud(req.files.image.tempFilePath);
       await fs.remove(req.files.image.tempFilePath)
       image={

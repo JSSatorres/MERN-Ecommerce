@@ -9,6 +9,7 @@ async function fetchUsers() {
 }
 
 export default function useProducts() {
+  
   return useQuery('PRODUCTS', fetchUsers, {
     staleTime: 5000,
     // notifyOnChangePropsExclusions: ['isStale'],
