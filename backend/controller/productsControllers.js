@@ -39,6 +39,7 @@ export const createtProducts = async (req, res) => {
 
     const { title, description } = req.body;
     const newProducts = new Products({ title, description,image});
+    // const newProducts = new Products({ title, description});
     await newProducts.save();
     res.json(newProducts);
   } catch (error) {

@@ -11,7 +11,11 @@ async function fetchUsers() {
 export default function useProducts() {
   
   return useQuery('PRODUCTS', fetchUsers, {
-    staleTime: 5000,
-    // notifyOnChangePropsExclusions: ['isStale'],
+    staleTime: 0,
+    notifyOnChangePropsExclusions: ['isStale'],
   });
 }
+
+// staleTime: 5000, el tiempo de la cache es 5segundo para que no haga llamadas a la peticion si no que muestre el estadode la cache si pongo staleTime: infinity se queda siempre en cache y no hace mas llamadas solo una cuando empieza la aplicacion por defecto es 0
+
+//notifyOnChangePropsExclusions: ['isStale'], si el tiempo de la cache es 5segundo con staleTime: 5000, cuando pase ese tiempo va a notificarnos que ha pasado haciendo otro render lo queno parece muy eficiente si pone ['isStale'] se deactiva por defecto esta activado

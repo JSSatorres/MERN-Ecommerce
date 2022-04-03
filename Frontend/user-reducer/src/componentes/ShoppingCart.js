@@ -1,14 +1,14 @@
 import React, { useReducer } from "react";
 import {
-  shoppingCartInitialState,
-  shoppingReducer,
+  productsOnItialState,
+  productsOnReducer,
 } from "../shoppingCart.Provider/shoppingCartReducer";
 import ItemProducts from "./ItemProducts";
 
 const ShoppingCart = () => {
   const [state, dispatch] = useReducer(
-    shoppingReducer,
-    shoppingCartInitialState
+    productsOnReducer,
+    productsOnItialState
   );
 
   const{products,cart}= state

@@ -1,5 +1,5 @@
 import React, {  useReducer } from "react";
-import { productsReducer, ProductsInitialState } from "./shoppingCartReducer";
+import { productsOnReducer, productsOnItialState } from "./shoppingCartReducer";
 import {
   StateProductContext,
   DispatchProductContext,
@@ -9,8 +9,8 @@ import {
 
 const ShoppingCartProvider = ({ children }) => {
   const [productsOn, dispatch] = useReducer(
-    productsReducer,
-    ProductsInitialState
+    productsOnReducer,
+    productsOnItialState
   );
   return (
     <StateProductContext.Provider value={{ productsOn }}>

@@ -7,12 +7,16 @@ const ItemProducts = ({ item }) => {
     <div className="text-center my-4 mx-10 shadow-lg hover:shadow-xl rounded-sm content-between">
       <div className="flex items-stretch">
         <div>
-          <img
-            width="400"
-            height="200"
-            className="w-5/6 mx-auto"
-            src={item.image.url}
-          ></img>
+          {item.image ? (
+            <img
+              width="400"
+              height="200"
+              className="w-5/6 mx-auto"
+              src={item.image.url}
+            ></img>
+          ) : (
+            <div> no hay fotico</div>
+          )}
         </div>
         <div className="self-end">
           <h4 className="text-2xl font-bold text-gray-500 group-hover:text-gray-700">

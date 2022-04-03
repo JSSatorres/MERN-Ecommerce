@@ -8,6 +8,7 @@ import PostProducts from "./pages/postProducts";
 import NotFound from "./pages/notFound";
 import Home from "./pages/home";
 import RegisterAdmin from "./pages/registerAdmin";
+import EditProduct from "./pages/editProduct/EditProduct";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,6 +18,10 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+//retry las rellamadas de la peticion por si falla 0 es que hace una vez la peticion y si falla no lo reintenta mas
+
+//refetchOnWindowFocus: false esto es que si se pincha fuera de la ventana y luego en la ventana vuelve hacer la peticion si esta en true, por defecto es true
 function App() {
 
   return (
@@ -27,7 +32,7 @@ function App() {
           <Route path="/login" element={<LoginAdmin />} />
           <Route path="/home" element={<Home />} />
           <Route path="/newproduct" element={<PostProducts />} />
-          <Route path="/editproduct/:id" element={<PostProducts />} />
+          <Route path="/editproduct/:id" element={<EditProduct />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>

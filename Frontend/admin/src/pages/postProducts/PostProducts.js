@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import NewProduct from "../../components/NewProduct";
 
 
+
 const PostProducts = () => {
   return (
     <>
