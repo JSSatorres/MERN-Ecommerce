@@ -4,6 +4,7 @@ import {useAuth} from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer";
 import Products from "../../components/Products";
+
 // import RegisterAdmin from "../registerAdmin";
 
 const Home = () => {
@@ -16,7 +17,7 @@ const handleLogout = async ()=>{
   navigate("/login")
 }
   return (
-    <div>
+    <div className="layout">
       <Headers />
       <Products />
       <Footer/>

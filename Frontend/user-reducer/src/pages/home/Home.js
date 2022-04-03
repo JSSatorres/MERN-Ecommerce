@@ -21,8 +21,8 @@ const Home = () => {
   return (
     <div>
       <Headers/>
-      <Products/>
       <ShoppingCart />
+      <Products/>
       <Footer/>
     </div>
   );

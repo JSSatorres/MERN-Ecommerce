@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useReducer } from "react";
+import {
+  shoppingCartInitialState,
+  shoppingReducer,
+} from "../shoppingCart.Provider/shoppingCartReducer";
+import ItemProducts from "./ItemProducts";
 
 const ShoppingCart = () => {
-  return (
-    <div>shoppingCart</div>
-  )
-}
+  const [state, dispatch] = useReducer(
+    shoppingReducer,
+    shoppingCartInitialState
+  );
 
-export default ShoppingCart
+  const{products,cart}= state
+
+  return (
+  <div>
+    <ItemProducts/>
+  </div>
+  )
+};
+
+export default ShoppingCart;
